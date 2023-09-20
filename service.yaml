@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: lms-attendance-service
-  name: lms-attendance-service
+    app: test
+  name: test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: lms-attendance-service
+      app: test
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: lms-attendance-service
+        app: test
     spec:
       containers:
-        - image: apaspxp/lms-attendance-service:latest
-          name: lms-attendance-service
+        - image: apaspxp/test-lms-attendance-services:latest
+          name: test
           resources: {}
 status: {}
 ---
@@ -28,8 +28,8 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: lms-attendance-service
-  name: lms-attendance-service
+    app: test
+  name: test
 spec:
   ports:
     - name: 8000-8000
@@ -38,7 +38,7 @@ spec:
       targetPort: 8000
       nodePort: 32000
   selector:
-    app: lms-attendance-service
+    app: test
   type: NodePort
 status:
   loadBalancer: {}

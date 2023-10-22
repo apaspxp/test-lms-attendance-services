@@ -15,7 +15,7 @@ public class AuthFilter {
             httpSecurity
                     .authorizeHttpRequests(request ->
                             request
-                                    .requestMatchers("/api/test").permitAll()
+                                    .requestMatchers("/test").permitAll()
 //                                    .requestMatchers("/api/swipe").hasRole("EMPLOYEE")
                                     .anyRequest()
                                     .authenticated()

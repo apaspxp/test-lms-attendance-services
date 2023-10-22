@@ -25,8 +25,8 @@
                 // sh "docker push apaspxp/lms-config-server:latest"
 
                 // Tag the image as "latest"
-                sh "docker tag apaspxp/${imageTag} apaspxp/lms-config-server:latest"
-                sh "docker push apaspxp/lms-config-server:latest"
+                sh "docker tag apaspxp/${imageTag} apaspxp/test-lms-attendance-services:latest"
+                sh "docker push apaspxp/test-lms-attendance-services:latest"
 
                 // Print the image tag for reference
                 echo "Docker image tag: ${imageTag}"
@@ -39,9 +39,9 @@
                 script {
                     withCredentials([file(credentialsId: 'Kubernetes_Credentials', variable: 'KUBECONFIG')]) {
                     //Cleanup the resources
-                    sh "kubectl delete -f lms-config-service-service.yaml --ignore-not-found"
+                    sh "kubectl delete -f service.yaml --ignore-not-found"
                     //Apply the new manifest file
-                    sh "kubectl apply -f lms-config-service-service.yaml"
+                    sh "kubectl apply -f service.yaml"
                    }
                 }
             }
